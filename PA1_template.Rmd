@@ -15,8 +15,7 @@ activity <- read.csv("activity.csv")
 ## What is mean total number of steps taken per day?
 
 ```{r}
-activityPerDay <- with(activity, aggregate(steps,
-            by=list(date=date), FUN=function(x) { mean(x, na.rm=T) }))
+activityPerDay <- with(activity, aggregate(steps, by=list(date=date), FUN=sum))
 hist(activityPerDay$x)
 mean(activityPerDay$x, na.rm=T)
 median(activityPerDay$x, na.rm=T)
@@ -66,7 +65,7 @@ for (i in 1:length(activity$steps2))
 Let's redo the first part of this analysis:
 
 ```{r}
-activityPerDay <- with(activity, aggregate(steps2, by=list(date=date), FUN=mean))
+activityPerDay <- with(activity, aggregate(steps2, by=list(date=date), FUN=sum))
 hist(activityPerDay$x)
 mean(activityPerDay$x)
 median(activityPerDay$x)
