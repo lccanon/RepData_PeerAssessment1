@@ -82,7 +82,7 @@ activity$day <- with(activity, replace(day, day != "weekend", "weekday"))
 activity$day <- factor(activity$day)
 library(ggplot2)
 p <- ggplot(activity, aes(x=interval, y=steps2))
-p <- p + stat_summary(fun.y="sum", geom="line")
+p <- p + stat_summary(fun.y="mean", geom="line")
 p <- p + facet_grid(day ~ .)
 print(p)
 ```
